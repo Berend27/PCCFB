@@ -59,24 +59,25 @@ wahl = 0
 while wahl != 5:
     printOptions()
     wahl = int(input("Geben Sie Ihre Auswahl ein (1, 2, 3 usw.): "))
-    if wahl == 1:
-        printData()
-    elif wahl == 2:
-        name = input("Geben Sie den Gegenstand ein, dessen Menge bearbeitet werden soll: ")
-        if name in artikelNamen:
-            menge = int(input("Neue Menge: "))
-            mengeBearbeiten(name, menge)
-        else:
-            print("Inventarartikel nicht gefunden")
-    elif wahl == 3:
-        name = input("Der name von dem neuen Gegenstand: ")
-        menge = int(input("Der Menge des neuen Gegenstands: "))
-        artikelHinzufügen(name, menge)
-    elif wahl == 4:
-        name = input("Der name des zu löschenden Gegenstands: ")
-        gegenstandLöschen(name)
-    elif wahl == 5:
-        print("Auf Wiedersehen.")
-    else:
-        print("Geben Sie entweder 1, 2, 3, 4 oder 5 ein.")
+    match wahl:
+        case 1:
+            printData()
+        case 2:
+            name = input("Geben Sie den Gegenstand ein, dessen Menge bearbeitet werden soll: ")
+            if name in artikelNamen:
+                menge = int(input("Neue Menge: "))
+                mengeBearbeiten(name, menge)
+            else:
+                print("Inventarartikel nicht gefunden")
+        case 3:
+            name = input("Der name von dem neuen Gegenstand: ")
+            menge = int(input("Der Menge des neuen Gegenstands: "))
+            artikelHinzufügen(name, menge)
+        case 4:
+            name = input("Der name des zu löschenden Gegenstands: ")
+            gegenstandLöschen(name)
+        case 5:
+            print("Auf Wiedersehen.")
+        case _:
+            print("Geben Sie entweder 1, 2, 3, 4 oder 5 ein.")
 
